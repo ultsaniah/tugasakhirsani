@@ -86,14 +86,6 @@
                             </span>
                         @enderror
                     </div>
-                    <div class="form-group">
-                        <input type="text" name="alamat" class="form-control @error('alamat') is-invalid @enderror" value="{{ old('alamat') }}" placeholder="Alamat" required="">
-                        @error('alamat')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>
                     <div class="form-group d-flex">
                         <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" required="">
                         @error('password')

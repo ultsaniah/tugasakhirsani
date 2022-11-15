@@ -36,7 +36,7 @@ Route::middleware('auth')->group(function () {
 
 // BAGIAN ADMIN
 Route::prefix('admin')->middleware(['auth', 'checkRole:admin'])->group(function () {
-    Route::get('/', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
+    Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
     Route::get('pelanggan', [AdminPelangganController::class, 'index'])->name('admin.pelanggan');
     Route::prefix('produk')->group(function () {
         Route::get('/', [AdminProdukController::class, 'index'])->name('admin.produk');
@@ -45,6 +45,14 @@ Route::prefix('admin')->middleware(['auth', 'checkRole:admin'])->group(function 
         Route::get('ubah/{id}', [AdminProdukController::class, 'ubah'])->name('admin.produk.ubah');
         Route::post('edit', [AdminProdukController::class, 'edit'])->name('admin.produk.edit');
         Route::get('hapus/{id}', [AdminProdukController::class, 'hapus'])->name('admin.produk.hapus');
+    });
+    Route::prefix('retur')->group(function () {
+        Route::get('/', [AdminProdukController::class, 'index'])->name('admin.retur');
+        Route::get('tambah', [AdminProdukController::class, 'tambah'])->name('admin.retur.tambah');
+        Route::post('simpan', [AdminProdukController::class, 'simpan'])->name('admin.retur.simpan');
+        Route::get('ubah/{id}', [AdminProdukController::class, 'ubah'])->name('admin.retur.ubah');
+        Route::post('edit', [AdminProdukController::class, 'edit'])->name('admin.retur.edit');
+        Route::get('hapus/{id}', [AdminProdukController::class, 'hapus'])->name('admin.retur.hapus');
     });
     Route::get('pesanan', [AdminPesananController::class, 'index'])->name('admin.pesanan');
 });

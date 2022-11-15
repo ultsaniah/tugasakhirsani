@@ -112,7 +112,7 @@
                 <h1 class="mb-4 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border border-white px-3 mr-1">H</span>Himari Craft</h1>
             </a>
             <p>
-                Himari Craft merupakan UMKM/UKM yang bergerak dibidang kerajinan berbahan dasar mendong. Adapun kerajinan dari mendong dikenal sebagai salah satu kerajinan
+                Himari Craft merupakan UMKM yang bergerak dibidang kerajinan berbahan dasar mendong. Adapun kerajinan dari mendong dikenal sebagai salah satu kerajinan
             </p>
             
         </div>

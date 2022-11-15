@@ -19,9 +19,15 @@
             </form>
         </div>
         <div class="col-lg-3 col-6 text-right">
+            @auth
             @php
                 $isi = App\Models\Keranjang::where('user_id', auth()->user()->id)->get()->count();
             @endphp
+            @else
+            @php
+                $isi = '';
+            @endphp
+            @endauth
             <a href="{{ route('keranjang') }}" class="btn border">
                 <i class="fas fa-shopping-cart text-primary"></i>
                 <span class="badge">{{ $isi }}</span>
