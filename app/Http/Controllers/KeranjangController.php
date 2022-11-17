@@ -21,11 +21,19 @@ class KeranjangController extends Controller
         if ($produk->stok < 1) {
             return 'stok tidak ada';
         }
-        $keranjang = new Keranjang();
-        $keranjang->user_id = auth()->user()->id;
-        $keranjang->produk_id = $id;
-        $keranjang->jumlah = 1;
-        $keranjang->save();
+        $ada =  Keranjang::where('produk_id', $id)
+            ->where('user_id', auth()->user()->id)
+            ->first();
+        if ($ada) {
+            $ada->jumlah = $ada->jumlah + 1;
+            $ada->save();
+        } else {
+            $keranjang = new Keranjang();
+            $keranjang->user_id = auth()->user()->id;
+            $keranjang->produk_id = $id;
+            $keranjang->jumlah = 1;
+            $keranjang->save();
+        }
         return redirect()->route('beranda');
     }
 
@@ -35,11 +43,42 @@ class KeranjangController extends Controller
         if ($produk->stok < $request->jumlah) {
             return 'stok tidak ada';
         }
-        $keranjang = new Keranjang();
-        $keranjang->user_id = auth()->user()->id;
-        $keranjang->produk_id = $request->produk_id;
-        $keranjang->jumlah = $request->jumlah;
-        $keranjang->save();
+        $ada =  Keranjang::where('produk_id', $request->produk_id)
+            ->where('user_id', auth()->user()->id)
+            ->first();
+        if ($ada) {
+            $ada->jumlah = (int) $ada->jumlah + (int) $request->jumlah;
+            $ada->save();
+        } else {
+            $keranjang = new Keranjang();
+            $keranjang->user_id = auth()->user()->id;
+            $keranjang->produk_id = $request->produk_id;
+            $keranjang->jumlah = $request->jumlah;
+            $keranjang->save();
+        }
         return redirect()->route('beranda');
+    }
+
+    public function plus($id)
+    {
+        $keranjang = Keranjang::find($id);
+        $keranjang->jumlah = $keranjang->jumlah + 1;
+        $keranjang->save();
+        return redirect()->route('keranjang');
+    }
+
+    public function minus($id)
+    {
+        $keranjang = Keranjang::find($id);
+        $keranjang->jumlah = $keranjang->jumlah - 1;
+        $keranjang->save();
+        return redirect()->route('keranjang');
+    }
+
+    public function hapus($id)
+    {
+        $keranjang = Keranjang::find($id);
+        $keranjang->delete();
+        return redirect()->back();
     }
 }

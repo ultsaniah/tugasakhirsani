@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\Pesanan;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class AdminPesananController extends Controller
 {
     public function index()
     {
-        // $pesanan = P
-        return view('admin.pesanan');
+        $pesanan = Pesanan::all();
+        return view('admin.pesanan', compact('pesanan'));
     }
 }

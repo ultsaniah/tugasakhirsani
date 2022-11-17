@@ -44,20 +44,20 @@
                         <td class="align-middle">
                             <div class="input-group quantity mx-auto" style="width: 100px;">
                                 <div class="input-group-btn">
-                                    <button class="btn btn-sm btn-primary btn-minus" >
+                                    <a href="{{ route('keranjang.minus', ['id' => $item->id]) }}" role="button" class="btn btn-sm btn-primary btn-minus" >
                                     <i class="fa fa-minus"></i>
-                                    </button>
+                                    </a>
                                 </div>
                                 <input type="text" class="form-control form-control-sm bg-secondary text-center" value="{{ $item->jumlah }}">
                                 <div class="input-group-btn">
-                                    <button class="btn btn-sm btn-primary btn-plus">
+                                    <a href="{{ route('keranjang.plus', ['id' => $item->id]) }}" role="button" class="btn btn-sm btn-primary btn-plus">
                                         <i class="fa fa-plus"></i>
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                         </td>
                         <td class="align-middle">Rp{{ number_format($total, 0 ,0 ,'.') }}</td>
-                        <td class="align-middle"><button class="btn btn-sm btn-primary"><i class="fa fa-times"></i></button></td>
+                        <td class="align-middle"><a href="{{ route('keranjang.hapus', ['id' => $item->id]) }}" role="button" class="btn btn-sm btn-primary"><i class="fa fa-times"></i></a></td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -75,7 +75,7 @@
                     </div>
                 </div>
                 <div class="card-footer border-secondary bg-transparent">
-                    <button class="btn btn-block btn-primary my-3 py-3">Checkout</button>
+                    <a href="{{ route('checkout') }}" role="button" class="btn btn-block btn-primary my-3 py-3">Checkout</a>
                 </div>
             </div>
         </div>

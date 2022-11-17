@@ -1,15 +1,16 @@
 <?php
 
-use App\Http\Controllers\Admin\AdminDashboardController;
-use App\Http\Controllers\Admin\AdminProdukController;
-use App\Http\Controllers\Admin\AdminPelangganController;
-use App\Http\Controllers\Admin\AdminPesananController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DataPelangganController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\KeranjangController;
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\KeranjangController;
+use App\Http\Controllers\DataPelangganController;
+use App\Http\Controllers\Admin\AdminProdukController;
+use App\Http\Controllers\Admin\AdminPesananController;
+use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Admin\AdminPelangganController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +31,14 @@ Route::middleware('auth')->group(function () {
     Route::prefix('keranjang')->group(function () {
         Route::get('/', [KeranjangController::class, 'index'])->name('keranjang');
         Route::get('tambah/{id}', [KeranjangController::class, 'getKeranjang'])->name('keranjang.tambah.get');
+        Route::get('plus/{id}', [KeranjangController::class, 'plus'])->name('keranjang.plus');
+        Route::get('minus/{id}', [KeranjangController::class, 'minus'])->name('keranjang.minus');
         Route::post('tambah', [KeranjangController::class, 'postKeranjang'])->name('keranjang.tambah.post');
+        Route::get('hapus/{id}', [KeranjangController::class, 'hapus'])->name('keranjang.hapus');
+    });
+    Route::prefix('checkout')->group(function () {
+        Route::get('/', [CheckoutController::class, 'index'])->name('checkout');
+        Route::post('simpan', [CheckoutController::class, 'simpan'])->name('checkout.simpan');
     });
 });
 

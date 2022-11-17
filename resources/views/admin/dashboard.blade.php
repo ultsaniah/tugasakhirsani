@@ -27,7 +27,7 @@
                 @endphp
                 {{ $produk }}
             </h2>
-            <h6 class="card-text">Buah</h6>
+            {{-- <h6 class="card-text">Buah</h6> --}}
         </div>
         </div>
     </div>
@@ -42,7 +42,7 @@
                 @endphp
                 {{ $pesanan }}
             </h2>
-            <h6 class="card-text">Pesanan</h6>
+            {{-- <h6 class="card-text">Pesanan</h6> --}}
         </div>
         </div>
     </div>
