@@ -21,7 +21,7 @@
         <div class="col-lg-3 col-6 text-right">
             @auth
             @php
-                $isi = App\Models\Keranjang::where('user_id', auth()->user()->id)->get()->count();
+                $isi = App\Models\Keranjang::where('user_id', auth()->user()->id)->where('status', 'pending')->get()->count();
             @endphp
             @else
             @php
@@ -62,10 +62,10 @@
                         @auth
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                                <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40" height="40" class="rounded-circle">
+                                {{ auth()->user()->name }}
                             </a>
                             <div class="dropdown-menu" style="margin-left: -2rem; margin-top: -1rem">
-                                <a href="#" class="dropdown-item">Profile</a>
+                                <a href="{{ route('profil') }}" class="dropdown-item">Profile</a>
                                 <form action="{{ route('logout') }}" id="logout-form" method="post">
                                     @csrf        
                                 </form>

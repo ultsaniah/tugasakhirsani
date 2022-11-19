@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddDataPemesanPesanansTable extends Migration
+class AddHpAlamatUsers extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class AddDataPemesanPesanansTable extends Migration
      */
     public function up()
     {
-        Schema::table('pesanans', function (Blueprint $table) {
-            $table->string('nama')->after('total');
-            $table->string('no_hp')->after('nama');
-            $table->text('alamat')->after('no_hp');
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('hp')->after('password')->nullable();
+            $table->text('alamat')->after('hp')->nullable();
         });
     }
 
@@ -27,8 +26,9 @@ class AddDataPemesanPesanansTable extends Migration
      */
     public function down()
     {
-        Schema::table('pesanans', function (Blueprint $table) {
-            //
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('hp');
+            $table->dropColumn('alamat');
         });
     }
 }

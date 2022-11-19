@@ -15,7 +15,7 @@ class CreatePesanansTable extends Migration
     {
         Schema::create('pesanans', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('keranjang_id');
+            $table->text('keranjang_id');
             $table->integer('total');
             $table->timestamps();
         });

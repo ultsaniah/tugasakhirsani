@@ -112,8 +112,8 @@
                         </span>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
-                <a href="{{ route('admin.produk') }}" class="btn btn-light">Cancel</a>
+                <button type="submit" class="btn btn-gradient-primary mr-2">Simpan</button>
+                <a href="{{ route('admin.produk') }}" class="btn btn-light">Kembali</a>
               </form>
           </div>
         </div>

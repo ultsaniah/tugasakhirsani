@@ -4,11 +4,11 @@
 <!-- Page Header Start -->
 <div class="container-fluid bg-secondary mb-5">
     <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
-        <h1 class="font-weight-semi-bold text-uppercase mb-3">Shopping Cart</h1>
+        <h1 class="font-weight-semi-bold text-uppercase mb-3">Keranjang Belanja</h1>
         <div class="d-inline-flex">
-            <p class="m-0"><a href="">Home</a></p>
+            <p class="m-0"><a href="">Beranda</a></p>
             <p class="m-0 px-2">-</p>
-            <p class="m-0">Shopping Cart</p>
+            <p class="m-0">Keranjang Belanja</p>
         </div>
     </div>
 </div>
@@ -39,7 +39,7 @@
                         $subtotal += $total;
                     @endphp
                     <tr>
-                        <td class="align-middle"><img src="img/product-1.jpg" alt="" style="width: 50px;"> {{ $item->produk->nama }}</td>
+                        <td class="align-middle"><img src="{{ asset('produk/'.$item->produk->gambar) }}" alt="" style="width: 50px;"> {{ $item->produk->nama }}</td>
                         <td class="align-middle">Rp{{ number_format($item->produk->harga, 0, 0, '.') }}</td>
                         <td class="align-middle">
                             <div class="input-group quantity mx-auto" style="width: 100px;">

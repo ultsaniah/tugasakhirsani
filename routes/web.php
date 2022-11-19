@@ -11,6 +11,8 @@ use App\Http\Controllers\Admin\AdminProdukController;
 use App\Http\Controllers\Admin\AdminPesananController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminPelangganController;
+use App\Http\Controllers\Api\RajaOngkirController;
+use App\Http\Controllers\ProfilController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +30,10 @@ Route::get('/', [HomeController::class, 'index'])->name('beranda');
 Route::get('detail/{id}', [HomeController::class, 'detail'])->name('detail');
 
 Route::middleware('auth')->group(function () {
+    Route::get('kota', [RajaOngkirController::class, 'kota'])->name('kota');
+    Route::post('ongkir', [RajaOngkirController::class, 'ongkir'])->name('ongkir');
+    Route::get('profil', [ProfilController::class, 'index'])->name('profil');
+    Route::post('profil', [ProfilController::class, 'store']);
     Route::prefix('keranjang')->group(function () {
         Route::get('/', [KeranjangController::class, 'index'])->name('keranjang');
         Route::get('tambah/{id}', [KeranjangController::class, 'getKeranjang'])->name('keranjang.tambah.get');
@@ -39,6 +45,8 @@ Route::middleware('auth')->group(function () {
     Route::prefix('checkout')->group(function () {
         Route::get('/', [CheckoutController::class, 'index'])->name('checkout');
         Route::post('simpan', [CheckoutController::class, 'simpan'])->name('checkout.simpan');
+        Route::get('bayar/{id}', [CheckoutController::class, 'bayar'])->name('checkout.bayar');
+        Route::post('bayar/simpan', [CheckoutController::class, 'simpanBayar'])->name('bayar.simpan');
     });
 });
 

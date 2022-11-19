@@ -16,7 +16,7 @@
     <nav aria-label="breadcrumb">
         <ul class="breadcrumb">
             <li class="breadcrumb-item active" aria-current="page">
-                <a href="{{ route('admin.produk.tambah') }}" class="btn btn-primary">Tambah (+)</a>
+                <a href="{{ route('admin.produk.tambah') }}" class="btn btn-primary">[+] Tambah</a>
             </li>
         </ul>
     </nav>
@@ -56,8 +56,8 @@
                         </td>
                         <td>
                             <div class="d-flex">
-                                <a href="{{ route('admin.produk.ubah', ['id' => $item->id]) }}" class="btn btn-primary">Ubah</a>
-                                <a href="{{ route('admin.produk.hapus', ['id' => $item->id]) }}" class="btn btn-danger">Hapus</a>
+                                <a href="{{ route('admin.produk.ubah', ['id' => $item->id]) }}" class="btn btn-primary" style="margin-right: 5px">Edit</a>
+                                <a href="{{ route('admin.produk.hapus', ['id' => $item->id]) }}" class="btn btn-danger" style="margin-left: 5px">Hapus</a>
                             </div>
                         </td>
                     </tr>

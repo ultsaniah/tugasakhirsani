@@ -11,6 +11,7 @@ class KeranjangController extends Controller
     public function index()
     {
         $keranjang = Keranjang::where('user_id', auth()->user()->id)
+            ->where('status', 'pending')
             ->get();
         return view('keranjang', compact('keranjang'));
     }
@@ -23,6 +24,7 @@ class KeranjangController extends Controller
         }
         $ada =  Keranjang::where('produk_id', $id)
             ->where('user_id', auth()->user()->id)
+            ->where('status', 'pending')
             ->first();
         if ($ada) {
             $ada->jumlah = $ada->jumlah + 1;
@@ -34,7 +36,7 @@ class KeranjangController extends Controller
             $keranjang->jumlah = 1;
             $keranjang->save();
         }
-        return redirect()->route('beranda');
+        return redirect()->route('keranjang');
     }
 
     public function postKeranjang(Request $request)
@@ -44,6 +46,7 @@ class KeranjangController extends Controller
             return 'stok tidak ada';
         }
         $ada =  Keranjang::where('produk_id', $request->produk_id)
+            ->where('status', 'pending')
             ->where('user_id', auth()->user()->id)
             ->first();
         if ($ada) {
@@ -56,7 +59,7 @@ class KeranjangController extends Controller
             $keranjang->jumlah = $request->jumlah;
             $keranjang->save();
         }
-        return redirect()->route('beranda');
+        return redirect()->route('keranjang');
     }
 
     public function plus($id)
