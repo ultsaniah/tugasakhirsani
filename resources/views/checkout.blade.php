@@ -29,11 +29,11 @@ data-client-key="SB-Mid-client-pkPrydb_zQO1DaPU"></script>
             @csrf
             <div class="mb-3">
                 <label for="nama">Nama</label>
-                <input type="text" name="nama" class="form-control" id="nama" value="{{ auth()->user()->name ?? null }}">
+                <input type="text" name="nama" class="form-control" id="nama" value="{{ auth()->user()->name ?? null }}" readonly>
             </div>
             <div class="mb-3">
                 <label for="hp">No HP</label>
-                <input type="text" name="hp" class="form-control" id="hp" value="{{ auth()->user()->hp ?? null }}">
+                <input type="text" name="hp" class="form-control" id="hp" value="{{ auth()->user()->hp ?? null }}" readonly>
             </div>
             <div class="row mb-3">
                 @php
@@ -41,7 +41,7 @@ data-client-key="SB-Mid-client-pkPrydb_zQO1DaPU"></script>
                 @endphp
                 <div class="col-6">
                     <label for="provinsi">Provinsi</label>
-                    <select name="provinsi" class="form-control" id="provinsi">
+                    <select name="provinsi" class="form-control" id="provinsi" disabled>
                         <option disabled selected>-Pilih-</option>
                         @if (empty($alamat))
                         @foreach ($provinsi as $item)
@@ -56,7 +56,7 @@ data-client-key="SB-Mid-client-pkPrydb_zQO1DaPU"></script>
                 </div>
                 <div class="col-6">
                     <label for="kota">Kota</label>
-                    <select name="kota" class="form-control" id="kota">
+                    <select name="kota" class="form-control" id="kota" disabled>
                         @if (empty($alamat))
                         <option disabled selected>-Pilih-</option>
                         @else
@@ -67,12 +67,12 @@ data-client-key="SB-Mid-client-pkPrydb_zQO1DaPU"></script>
             </div>
             <div class="mb-3">
                 <label for="alamat">Alamat</label>
-                <textarea name="alamat" class="form-control" id="alamat" rows="4">{{ $alamat->alamat ?? null }}</textarea>
+                <textarea name="alamat" disabled class="form-control" id="alamat" rows="4">{{ $alamat->alamat ?? null }}</textarea>
             </div>
             <div class="row mb-3">
                 <div class="col-6">
                     <label for="kurir">Kurir</label>
-                    <select name="kurir" class="form-control" id="kurir">
+                    <select name="kurir" class="form-control" id="kurir" required>
                         <option selected disabled>-Pilih-</option>
                         <option value="jne">JNE</option>
                         <option value="tiki">TIKI</option>
@@ -139,7 +139,7 @@ data-client-key="SB-Mid-client-pkPrydb_zQO1DaPU"></script>
                             </div>
                         </div>
                         <div class="card-footer border-secondary bg-transparent">
-                            <input type="hidden" name="total">
+                            <input type="hidden" name="total" required>
                             <button type="submit" class="btn btn-block btn-primary my-3 py-3">Checkout</button>
                         </div>
                     </div>

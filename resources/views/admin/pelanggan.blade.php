@@ -38,7 +38,10 @@
                         <td>{{ $no++ }}</td>
                         <td>{{ $item->name}}</td>
                         <td>{{ $item->email }}</td>
-                        <td>{{ $item->alamat }}</td>
+                        @php
+                            $alamat = json_decode($item->alamat);
+                        @endphp
+                        <td>{{ $alamat->alamat.", ".$alamat->kota.", ".$alamat->provinsi }}</td>
                     </tr>
                     @php
                         $no++;

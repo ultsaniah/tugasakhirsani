@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddDataPemesanPesanansTable extends Migration
+class AddUserIdOnReturs extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class AddDataPemesanPesanansTable extends Migration
      */
     public function up()
     {
-        Schema::table('pesanans', function (Blueprint $table) {
-            $table->string('nama')->after('total');
-            $table->string('no_hp')->after('nama');
-            $table->text('alamat')->after('no_hp');
+        Schema::table('returs', function (Blueprint $table) {
+            $table->foreignId('user_id')->nullable()->after('id');
         });
     }
 
@@ -27,8 +25,8 @@ class AddDataPemesanPesanansTable extends Migration
      */
     public function down()
     {
-        Schema::table('pesanans', function (Blueprint $table) {
-            //
+        Schema::table('returs', function (Blueprint $table) {
+            $table->dropColumn('user_id');
         });
     }
 }

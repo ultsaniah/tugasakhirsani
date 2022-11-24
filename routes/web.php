@@ -3,16 +3,17 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ReturController;
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\KeranjangController;
 use App\Http\Controllers\DataPelangganController;
+use App\Http\Controllers\Api\RajaOngkirController;
 use App\Http\Controllers\Admin\AdminProdukController;
 use App\Http\Controllers\Admin\AdminPesananController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminPelangganController;
-use App\Http\Controllers\Api\RajaOngkirController;
-use App\Http\Controllers\ProfilController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,15 +26,28 @@ use App\Http\Controllers\ProfilController;
 |
 */
 
+// BAGIAN HOME
 Route::get('/', [HomeController::class, 'index'])->name('beranda');
 
 Route::get('detail/{id}', [HomeController::class, 'detail'])->name('detail');
 
+//PRODUK
+Route::get('daftar-produk', [HomeController::class, 'produk'])->name('produk');
+
+//KONTAK
+Route::get('kontak', function () {
+    return view('kontak');
+})->name('kontak');
+
+//BAGIAN USER
 Route::middleware('auth')->group(function () {
     Route::get('kota', [RajaOngkirController::class, 'kota'])->name('kota');
     Route::post('ongkir', [RajaOngkirController::class, 'ongkir'])->name('ongkir');
     Route::get('profil', [ProfilController::class, 'index'])->name('profil');
     Route::post('profil', [ProfilController::class, 'store']);
+    Route::get('retur', [ReturController::class, 'index'])->name('retur');
+    Route::get('retur/tambah', [ReturController::class, 'tambah'])->name('retur.tambah');
+    Route::post('retur/tambah', [ReturController::class, 'simpan'])->name('retur.simpan');
     Route::prefix('keranjang')->group(function () {
         Route::get('/', [KeranjangController::class, 'index'])->name('keranjang');
         Route::get('tambah/{id}', [KeranjangController::class, 'getKeranjang'])->name('keranjang.tambah.get');
@@ -70,7 +84,10 @@ Route::prefix('admin')->middleware(['auth', 'checkRole:admin'])->group(function 
         Route::post('edit', [AdminProdukController::class, 'edit'])->name('admin.retur.edit');
         Route::get('hapus/{id}', [AdminProdukController::class, 'hapus'])->name('admin.retur.hapus');
     });
-    Route::get('pesanan', [AdminPesananController::class, 'index'])->name('admin.pesanan');
+    Route::prefix('pesanan')->group(function () {
+        Route::get('/', [AdminPesananController::class, 'index'])->name('admin.pesanan');
+        Route::get('detail/{id}', [AdminPesananController::class, 'detail'])->name('admin.pesanan.detail');
+    });
 });
 
 Auth::routes();

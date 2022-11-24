@@ -18,6 +18,8 @@ class CreateKeranjangsTable extends Migration
             $table->foreignId('user_id');
             $table->foreignId('produk_id');
             $table->integer('jumlah');
+            $table->string('pesanan_id')->nullable();
+            $table->string('status')->default('pending');
             $table->timestamps();
         });
     }

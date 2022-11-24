@@ -45,19 +45,19 @@
         <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
             <div class="d-flex align-items-center border mb-4" style="padding: 30px;">
                 <h1 class="fa fa-check text-primary m-0 mr-3"></h1>
-                <h5 class="font-weight-semi-bold m-0">Kualitas Produk</h5>
+                <h5 class="font-weight-semi-bold m-0">Kualitas Produk Terjamin</h5>
             </div>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
             <div class="d-flex align-items-center border mb-4" style="padding: 30px;">
                 <h1 class="fa fa-shipping-fast text-primary m-0 mr-2"></h1>
-                <h5 class="font-weight-semi-bold m-0">Pengiriman ngdi y?? </h5>
+                <h5 class="font-weight-semi-bold m-0">Pengiriman ke seluruh kota </h5>
             </div>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
             <div class="d-flex align-items-center border mb-4" style="padding: 30px;">
                 <h1 class="fas fa-exchange-alt text-primary m-0 mr-3"></h1>
-                <h5 class="font-weight-semi-bold m-0">7 Hari Retur</h5>
+                <h5 class="font-weight-semi-bold m-0">7 Hari Pengembalian</h5>
             </div>
         </div>
         {{-- <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
@@ -86,7 +86,7 @@
                 <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                     <h6 class="text-truncate mb-3">{{ $item->nama }}</h6>
                     <div class="d-flex justify-content-center">
-                        <h6>Rp{{ number_format($item->harga, 0, 0, '.') }}</h6><h6 class="text-muted ml-2"><del>Rp{{ number_format($item->harga, 0, 0, '.') }}</del></h6>
+                        <h6>Rp{{ number_format($item->harga, 0, 0, '.') }}</h6>
                     </div>
                 </div>
                 <div class="card-footer d-flex justify-content-between bg-light border">
@@ -101,36 +101,6 @@
 <!-- Products End -->
 
 
-<!-- Kontak Start -->
-<div class="container-fluid bg-secondary text-dark mt-5 pt-5">
-    <div class="text-center mb-4">
-        <h2 class="section-title px-5"><span class="px-2" style="background-color: #edf1ff">Kontak</span></h2>
-    </div>
-    <div class="row px-xl-5 pt-5">
-        <div class="col-lg-6 col-md-12 mb-5 pr-3 pr-xl-5">
-            <a href="" class="text-decoration-none">
-                <h1 class="mb-4 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border border-white px-3 mr-1">H</span>Himari Craft</h1>
-            </a>
-            <p>
-                Himari Craft merupakan UMKM yang bergerak dibidang kerajinan berbahan dasar mendong. Adapun kerajinan dari mendong dikenal sebagai salah satu kerajinan
-            </p>
-            
-        </div>
-        <div class="col-lg-6 col-md-12" id="kontak">
-            <div class="row">
-                <div class="col-md-12 mb-5">
-                    
-                    <h5 class="font-weight-semi-bold mb-3">Kontak Info</h5>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>Parakan Kulon RT 02 RW 20, Sendangsari, Minggir, Sleman, Yogyakarta</p>
-                    <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>crafthimari@gmail.com</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt text-primary mr-3"></i>+62 857 4055 4348</p>
 
-                </div>
-            </div>
-        </div>
-        
-    </div>
-</div>
-<!-- KOntak End -->
 
 @endsection

@@ -18,4 +18,10 @@ class HomeController extends Controller
         $produk = Produk::find($id);
         return view('detail', compact('produk'));
     }
+
+    public function produk()
+    {
+        $produk = Produk::all();
+        return view('produk', compact('produk'));
+    }
 }

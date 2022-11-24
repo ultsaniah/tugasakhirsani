@@ -9,6 +9,11 @@ class Keranjang extends Model
 {
     use HasFactory;
 
+    public function pesanan()
+    {
+        return $this->belongsTo(Pesanan::class, 'pesanan_id');
+    }
+
     public function produk()
     {
         return $this->belongsTo(Produk::class);

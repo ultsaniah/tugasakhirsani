@@ -42,13 +42,14 @@ class RajaOngkirController extends Controller
     public function ongkir(Request $request)
     {
         $client = new Client();
+        $alamat = json_decode(auth()->user()->alamat);
         $response = $client->request('POST', 'https://api.rajaongkir.com/starter/cost', [
             'headers' => [
                 'key' => env('RAJAONGKIR_API_KEY')
             ],
             'form_params' => [
                 'origin' => '419',
-                'destination' => $request->tujuan,
+                'destination' => $alamat->kota_id,
                 'weight' => $request->berat,
                 'courier' => $request->kurir
             ]

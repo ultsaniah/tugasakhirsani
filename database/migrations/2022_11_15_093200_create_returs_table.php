@@ -15,7 +15,7 @@ class CreateRetursTable extends Migration
     {
         Schema::create('returs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('pesanan_id');
+            $table->string('pesanan_id');
             $table->date('tanggal');
             $table->string('status')->default('pending');
             $table->string('bukti');

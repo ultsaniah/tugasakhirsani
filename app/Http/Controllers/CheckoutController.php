@@ -13,6 +13,9 @@ class CheckoutController extends Controller
 {
     public function index()
     {
+        if (empty(auth()->user()->alamat)) {
+            return redirect()->route('profil')->with('error', 'Alamat Perlu Diisi');
+        }
         $keranjang = Keranjang::where('user_id', auth()->user()->id)
             ->where('status', 'pending')
             ->get();
@@ -22,23 +25,19 @@ class CheckoutController extends Controller
 
     public function simpan(Request $request)
     {
-        $provinsi = explode("|", $request->provinsi);
-        $kota = explode("|", $request->kota);
         $keranjang = Keranjang::where('user_id', auth()->user()->id)
             ->where('status', 'pending')
             ->get();
-        foreach ($keranjang as $item) {
-            $item->status = 'checkout';
-            $item->save();
-            $cart[] = $item->id;
-        }
         $pesanan = new Pesanan();
-        $pesanan->keranjang_id = json_encode($cart);
-        $pesanan->nama = $request->nama;
-        $pesanan->no_hp = $request->hp;
-        $pesanan->alamat = $request->alamat . ", " . $kota[1] . ", " . $provinsi[1];
+        $pesanan->kurir = $request->kurir;
+        $pesanan->ongkir = $request->ongkir;
         $pesanan->total = $request->total;
         $pesanan->save();
+        foreach ($keranjang as $item) {
+            $item->pesanan_id = $pesanan->id;
+            $item->status = 'checkout';
+            $item->save();
+        }
         return redirect()->route('checkout.bayar', [
             'id' => $pesanan->id
         ]);
@@ -59,6 +58,9 @@ class CheckoutController extends Controller
     public function simpanBayar(Request $request)
     {
         $json = json_decode($request->json);
+        $pesanan = Pesanan::find($request->id);
+        $pesanan->status_pembayaran = $json->transaction_status;
+        $pesanan->save();
         $transaksi = new Transaksi();
         $transaksi->pesanan_id = $request->id;
         $transaksi->transaksi_id = $json->order_id;

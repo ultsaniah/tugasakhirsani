@@ -3,7 +3,8 @@
     <div class="row align-items-center py-3 px-xl-5">
         <div class="col-lg-4 d-none d-lg-block">
             <a href="" class="text-decoration-none">
-                <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">H</span>Himari Craft</h1>
+                <h1 class="m-0 display-5 font-weight-semi-bold text-primary ">
+                    Himari Craft</h1>
             </a>
         </div>
         <div class="col-lg-5 col-6 text-left">
@@ -51,8 +52,8 @@
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav mr-auto py-0">
                         <a href="{{ route('beranda') }}" class="nav-item nav-link">Beranda</a>
-                        <a href="{{ route('beranda') }}#produk" class="nav-item nav-link">Produk</a>
-                        <a href="{{ route('beranda') }}#kontak" class="nav-item nav-link">Kontak</a>
+                        <a href="{{ route('produk') }}" class="nav-item nav-link">Produk</a>
+                        <a href="{{ route('kontak') }}" class="nav-item nav-link">Kontak</a>
                     </div>
                     <div class="navbar-nav ml-auto py-0">
                         @guest
@@ -65,13 +66,14 @@
                                 {{ auth()->user()->name }}
                             </a>
                             <div class="dropdown-menu" style="margin-left: -2rem; margin-top: -1rem">
-                                <a href="{{ route('profil') }}" class="dropdown-item">Profile</a>
+                                <a href="{{ route('profil') }}" class="dropdown-item">Profil</a>
+                                <a href="{{ route('retur') }}" class="dropdown-item">Pengembalian</a>
                                 <form action="{{ route('logout') }}" id="logout-form" method="post">
                                     @csrf        
                                 </form>
                                 <a class="dropdown-item" onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
-                                    Logout
+                                    Keluar
                                 </a>
                             </div>
                         </div>

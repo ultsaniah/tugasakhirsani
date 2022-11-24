@@ -10,7 +10,7 @@
               </svg>
         </span> 
         <span>
-            Data Pesanan 
+            Data Pesanan
         </span>
     </h3>
 </div>
@@ -24,38 +24,19 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Nama </th>
-                        <th>No HP</th>
-                        <th>Alamat</th>
-                        <th>Status</th>
-                        <th>Detail</th>
+                        <th>Nama Produk</th>
+                        <th>Jumlah</th>
                     </tr>
                 </thead>
                 <tbody>
                     @php
                         $no = 1;
                     @endphp
-                    @foreach ($pesanan as $item)   
+                    @foreach ($keranjang as $item)   
                     <tr>
                         <td>{{ $no++ }}</td>
-                        <td>{{ $item->keranjang[0]->user->name }}</td>
-                        <td>{{ $item->keranjang[0]->user->hp }}</td>
-                        @php
-                            $alamat = json_decode($item->keranjang[0]->user->alamat);
-                        @endphp
-                        <td>{{ $alamat->alamat.", ".$alamat->kota.", ".$alamat->provinsi }}</td>
-                        <td>
-                            @if ($item->status_pembayaran == 'settlement')
-                                <span class="badge badge-warning">Belum Diproses</span>
-                            @elseif ($item->status_pembayaran == 'send')
-                                <span class="badge badge-primary">Dikirim</span>
-                            @elseif ($item->status_pembayaran == 'accepted')
-                                <span class="badge badge-success">Diterima Pelanggan</span>
-                            @endif    
-                        </td>
-                        <td>
-                            <a href="{{ route('admin.pesanan.detail', ['id' => $item->id]) }}" role="button" class="btn btn-primary">Detail</a>
-                        </td>
+                        <td>{{ $item->produk->nama }}</td>
+                        <td>{{ $item->jumlah }}</td>
                     </tr>
                     @php
                         $no++;
@@ -64,6 +45,21 @@
                 </tbody>
             </table>
           </div>
+        </div>
+    </div>
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h3>Masukkan Resi</h3>
+                <form action="" method="post">
+                    @csrf
+                    <div class="mb-3">
+                        <label for="resi">Resi Pengiriman</label>
+                        <input type="text" name="resi" class="form-control" id="resi">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </form>
+            </div>
         </div>
     </div>
 </div>

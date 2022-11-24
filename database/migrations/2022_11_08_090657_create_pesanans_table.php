@@ -15,8 +15,10 @@ class CreatePesanansTable extends Migration
     {
         Schema::create('pesanans', function (Blueprint $table) {
             $table->id();
-            $table->text('keranjang_id');
+            $table->string('kurir');
+            $table->integer('ongkir');
             $table->integer('total');
+            $table->string('status_pembayaran')->default('pending');
             $table->timestamps();
         });
     }
