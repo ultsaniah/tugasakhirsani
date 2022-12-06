@@ -32,7 +32,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('admin.dashboard') }}">
+            <a class="nav-link {{ Request::is('admin/laporan') ? 'active' : '' }}" href="{{ route('admin.laporan') }}">
                 <span class="menu-title">Laporan</span>
                 <i class="bi  bi-file-earmark-text menu-icon"></i>
             </a>

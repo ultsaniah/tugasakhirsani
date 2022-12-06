@@ -9,19 +9,25 @@
         </h1>    
     </div>
     <div class="navbar-menu-wrapper d-flex justify-content-end align-items-center">
+        
         <div class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
                 {{ auth()->user()->name }}
             </a>
+            
             <div class="dropdown-menu" style="margin-left: -2rem; margin-top: -1rem">
-                <form action="{{ route('logout') }}" id="logout-form" method="post">
-                    @csrf        
-                </form>
-                <a class="dropdown-item" onclick="event.preventDefault();
+                
+                    <form action="{{ route('logout') }}" id="logout-form" method="post">
+                        @csrf        
+                    </form>
+                <a class="dropdown-item" style="color: black" onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">
                     Logout
                 </a>
             </div>
         </div>
+
     </div>
+
+    
 </nav>

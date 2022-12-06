@@ -17,6 +17,8 @@
 
 
 <div class="row">
+
+    {{-- go menampilkan data produk sek di pesan --}}
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
@@ -47,12 +49,15 @@
           </div>
         </div>
     </div>
+
+    {{-- untuk menginputkan resi pengiriman apabila dah bayar --}}
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
                 <h3>Masukkan Resi</h3>
-                <form action="" method="post">
+                <form action="{{ route('admin.pesanan.resi') }}" method="post">
                     @csrf
+                    <input type="hidden" name="id" class="form-control" id="id" value="{{ $keranjang[0]->pesanan_id }}">
                     <div class="mb-3">
                         <label for="resi">Resi Pengiriman</label>
                         <input type="text" name="resi" class="form-control" id="resi">

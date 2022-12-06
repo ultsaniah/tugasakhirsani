@@ -38,15 +38,12 @@
 
 <div class="container-fluid py-5">
     <div class="row px-xl-5">
-        <form action="" method="post" class="col-12" enctype="multipart/form-data">
+        <form action="{{ route('retur.simpan') }}" method="post" class="col-12" enctype="multipart/form-data">
             @csrf
+            <input type="hidden" name="kode" class="form-control" id="kode" value="{{ $id }}">
             <div class="mb-3">
-                <label for="kode">Kode Pesanan</label>
-                <input type="text" name="kode" class="form-control" id="kode">
-            </div>
-            <div class="mb-3">
-                <label for="kota">Alasan Pengembalian</label>
-                <select name="kota" class="form-control" id="kota">
+                <label for="alasan">Alasan Pengembalian</label>
+                <select name="alasan" class="form-control" id="alasan">
                     <option disabled selected>-Pilih-</option>
                     <option value="Produk Cacat">Produk Cacat</option>
                     <option value="Produk Tidak Sesuai">Produk Tidak Sesuai</option>

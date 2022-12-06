@@ -20,4 +20,11 @@ class AdminPesananController extends Controller
         $keranjang = Keranjang::where('pesanan_id', $id)->get();
         return view('admin.detail-pesanan', compact('keranjang'));
     }
+    public function resi(Request $request)
+    {
+        $pesanan = Pesanan::find($request->id);
+        $pesanan->status_pembayaran = 'send';
+        $pesanan->save();
+        return redirect()->route('admin.pesanan');
+    }
 }

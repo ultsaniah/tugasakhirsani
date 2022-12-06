@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
+
 <div class="page-header">
     <h3 class="page-title d-flex align-items-center">
         <span class="page-title-icon bg-gradient-primary text-white mr-2">

@@ -16,6 +16,7 @@
     </h3>
 </div>
 
+{{-- menampilkan data pembeli --}}
 <div class="row">
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
@@ -26,6 +27,7 @@
                     <th>No</th>
                     <th>Nama </th>
                     <th>Email</th>
+                    <th>No. HP</th>
                     <th>Alamat</th>
                     </tr>
                 </thead>
@@ -36,12 +38,17 @@
                     @foreach ($pembeli as $item)   
                     <tr>
                         <td>{{ $no++ }}</td>
-                        <td>{{ $item->name}}</td>
+                        <td>{{ $item->name }}</td>
                         <td>{{ $item->email }}</td>
-                        @php
-                            $alamat = json_decode($item->alamat);
-                        @endphp
+                        <td>{{ $item->hp }}</td>
+                        @if (isset($item->alamat))
+                            @php
+                                $alamat = json_decode($item->alamat);
+                            @endphp
                         <td>{{ $alamat->alamat.", ".$alamat->kota.", ".$alamat->provinsi }}</td>
+                        @else
+                        <td></td>
+                        @endif
                     </tr>
                     @php
                         $no++;

@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Retur;
 use Carbon\Carbon;
+use App\Models\Retur;
+use App\Models\Pesanan;
 use Illuminate\Http\Request;
 
 class ReturController extends Controller
@@ -14,16 +15,20 @@ class ReturController extends Controller
         return view('retur', compact('retur'));
     }
 
-    public function tambah()
+    public function tambah($id)
     {
-        return view('tambah-retur');
+        return view('tambah-retur', compact('id'));
     }
 
     public function simpan(Request $request)
     {
+        $pesanan = Pesanan::find($request->kode);
+        $pesanan->status_pembayaran = 'retur';
+        $pesanan->save();
         $retur = new Retur();
         $retur->user_id = auth()->user()->id;
         $retur->pesanan_id = $request->kode;
+        $retur->alasan = $request->alasan;
         $retur->tanggal = Carbon::today()->format('Y-m-d');
         if ($request->hasFile('bukti')) {
             $filename = rand() . $request->file('bukti')->getClientOriginalName();
@@ -31,6 +36,6 @@ class ReturController extends Controller
             $retur->bukti = $filename;
             $retur->save();
         }
-        return redirect()->route('retur');
+        return redirect()->route('pesanan');
     }
 }

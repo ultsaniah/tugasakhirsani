@@ -14,7 +14,7 @@ data-client-key="SB-Mid-client-pkPrydb_zQO1DaPU"></script>
     <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
         <h1 class="font-weight-semi-bold text-uppercase mb-3">Checkout</h1>
         <div class="d-inline-flex">
-            <p class="m-0"><a href="">Home</a></p>
+            <p class="m-0"><a href="">Beranda</a></p>
             <p class="m-0 px-2">-</p>
             <p class="m-0">Checkout</p>
         </div>
@@ -26,6 +26,8 @@ data-client-key="SB-Mid-client-pkPrydb_zQO1DaPU"></script>
 <div class="container-fluid pt-5">
     <div class="px-xl-5">
         <form action="{{ route('checkout.simpan') }}" method="post">
+
+            {{-- data user ngambil dari id user --}}
             @csrf
             <div class="mb-3">
                 <label for="nama">Nama</label>
@@ -69,6 +71,8 @@ data-client-key="SB-Mid-client-pkPrydb_zQO1DaPU"></script>
                 <label for="alamat">Alamat</label>
                 <textarea name="alamat" disabled class="form-control" id="alamat" rows="4">{{ $alamat->alamat ?? null }}</textarea>
             </div>
+
+            {{-- bagian pilih kurir dan ongkir --}}
             <div class="row mb-3">
                 <div class="col-6">
                     <label for="kurir">Kurir</label>
@@ -84,6 +88,8 @@ data-client-key="SB-Mid-client-pkPrydb_zQO1DaPU"></script>
                     <input type="text" name="ongkir" class="form-control" id="ongkir">
                 </div>
             </div>
+
+
             <div class="mb-3">
                 <table class="table table-bordered text-center mb-0">
                     <thead class="bg-secondary text-dark">
@@ -118,6 +124,7 @@ data-client-key="SB-Mid-client-pkPrydb_zQO1DaPU"></script>
                     </tbody>
                 </table>
             </div>
+
             <div class="mb-3 d-flex justify-content-end">
                 <div class="col-lg-4">
                     <div class="card border-secondary mb-5">

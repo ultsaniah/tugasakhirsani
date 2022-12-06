@@ -15,54 +15,87 @@
     </h3>
 </div>
 
-<div class="row">
-    <div class="col-md-4 stretch-card grid-margin">
-        <div class="card bg-gradient-danger card-img-holder text-white">
-        <div class="card-body">
-            <h4 class="font-weight-normal mb-3">Produk
-            </h4>
-            <h2 class="mb-5">
-                @php
-                    $produk = App\Models\Produk::count();
-                @endphp
-                {{ $produk }}
-            </h2>
-            {{-- <h6 class="card-text">Buah</h6> --}}
-        </div>
-        </div>
-    </div>
-    <div class="col-md-4 stretch-card grid-margin">
-        <div class="card bg-gradient-info card-img-holder text-white">
-        <div class="card-body">
-            <h4 class="font-weight-normal mb-3">Pesanan
-            </h4>
-            <h2 class="mb-5">
-                @php
-                    $pesanan = App\Models\Pesanan::count();
-                @endphp
-                {{ $pesanan }}
-            </h2>
-            {{-- <h6 class="card-text">Pesanan</h6> --}}
-        </div>
-        </div>
-    </div>
-    <div class="col-md-4 stretch-card grid-margin">
-        <div class="card bg-gradient-success card-img-holder text-white">
-        <div class="card-body">
-            <h4 class="font-weight-normal mb-3">Retur
-            </h4>
-            <h2 class="mb-5">
-                @php
-                    $retur = App\Models\Retur::count();
-                @endphp
-                {{ $retur }}
-            </h2>
-            <h6 class="card-text">Retur</h6>
-        </div>
-        </div>
-    </div>
-</div>
 
+
+<div class="row">
+
+    <!-- Pelanggan Card Example -->
+    
+    <!-- Produk Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                           Produk</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                            @php
+                                $produk = App\Models\Produk::count();
+                            @endphp
+                            {{ $produk }}
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pesanan Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-success shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                            Pesanan</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                            @php
+                                $pesanan = App\Models\Pesanan::count();
+                            @endphp
+                            {{ $pesanan }}
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Retur Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-info shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Retur
+                        </div>
+                        <div class="row no-gutters align-items-center">
+                            <div class="col-auto">
+                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
+                                    @php
+                                        $retur = App\Models\Retur::count();
+                                    @endphp
+                                    {{ $retur }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
 
 
 

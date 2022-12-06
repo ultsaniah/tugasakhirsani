@@ -8,6 +8,7 @@ use App\Models\Keranjang;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\RajaOngkirController;
 use App\Models\Transaksi;
+use Carbon\Carbon;
 
 class CheckoutController extends Controller
 {
@@ -28,7 +29,23 @@ class CheckoutController extends Controller
         $keranjang = Keranjang::where('user_id', auth()->user()->id)
             ->where('status', 'pending')
             ->get();
+        $order = Pesanan::orderBy('id', 'DESC')->first();
+        if ($order) {
+            $id = $order->order_id;
+            $ord = explode('-', $id);
+            if ($ord[0] == Carbon::today()->format('Ymd')) {
+                $number = (int) $ord[1];
+                $number++;
+            } else {
+                $number = 1;
+            }
+        } else {
+            $number = 1;
+        }
+        $orderId = Carbon::today()->format('Ymd') . '-' . sprintf("%03s", $number);
         $pesanan = new Pesanan();
+        $pesanan->order_id = $orderId;
+        $pesanan->user_id = auth()->user()->id;
         $pesanan->kurir = $request->kurir;
         $pesanan->ongkir = $request->ongkir;
         $pesanan->total = $request->total;
@@ -66,10 +83,11 @@ class CheckoutController extends Controller
         $transaksi->transaksi_id = $json->order_id;
         $transaksi->transaksi_status = $json->transaction_status;
         $transaksi->tipe_pembayaran = $json->payment_type;
-        $transaksi->bank = $json->va_numbers[0]->bank;
-        $transaksi->va = $json->va_numbers[0]->va_number;
+        $transaksi->bank = $json->va_numbers[0]->bank ?? null;
+        $transaksi->va = $json->va_numbers[0]->va_number ?? null;
         $transaksi->biaya = $json->gross_amount;
         $transaksi->pdf_url = $json->pdf_url;
+        $transaksi->save();
         return redirect()->route('beranda');
     }
 }

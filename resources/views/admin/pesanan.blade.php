@@ -35,6 +35,7 @@
                     @php
                         $no = 1;
                     @endphp
+                    @if ($pesanan->count() > 0)
                     @foreach ($pesanan as $item)   
                     <tr>
                         <td>{{ $no++ }}</td>
@@ -61,6 +62,11 @@
                         $no++;
                     @endphp
                     @endforeach
+                    @else
+                    <tr>
+                        <td class="col-12 text-center" colspan="5">Belum Ada Pesanan</td>
+                    </tr>
+                    @endif
                 </tbody>
             </table>
           </div>

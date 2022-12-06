@@ -11,6 +11,7 @@ class DataPelangganController extends Controller
     public function index()
     {
         $pembeli = User::where('role', 'pembeli')->get();
+        return $pembeli;
         return view('admin/pelanggan', compact('pembeli'));
 
         //  $user = Pelanggan::where('level', pelanggan)->get();

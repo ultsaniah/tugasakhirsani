@@ -103,9 +103,11 @@
                     <textarea id="deskripsi" class="form-control" rows="4" name="deskripsi"></textarea>
                 </div>
                 <div class="form-group">
+                    {{ csrf_field() }}
                     <label>Upload Gambar</label>
                     <input type="file" name="img" id="img" class="file-upload-default" accept="image/*">
                     <div class="input-group col-xs-12">
+                       
                         <input type="text" class="form-control file-upload-info" disabled="" placeholder="Upload Gambar">
                         <span class="input-group-append">
                             <label for="img" class="file-upload-browse btn btn-gradient-primary" type="button">Upload</label>

@@ -17,6 +17,7 @@ class CreateRetursTable extends Migration
             $table->id();
             $table->string('pesanan_id');
             $table->date('tanggal');
+            $table->string('alasan');
             $table->string('status')->default('pending');
             $table->string('bukti');
             $table->timestamps();
