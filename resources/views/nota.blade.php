@@ -31,9 +31,7 @@
           <div class="card-body">
             <blockquote class="blockquote mb-0">
               <div>
-                <div>
-                  <p>DATA PEMBELI</p>
-                </div>
+                
                 <div class="d-flex" style="font-size: 15px;">
                   <span>Nama : {{ ucfirst(auth()->user()->name) }}</span>
                 </div>
