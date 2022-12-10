@@ -32,9 +32,12 @@
                 </thead>
                 <tbody>
                     @php
-                        $no = 1;
+                        $no = 0;
                     @endphp
                     @if ($pesanan->count() > 0)
+                    @php
+                        $no++;
+                    @endphp
                     @foreach ($pesanan as $item)   
                     <tr>
                         <td>{{ $no++ }}</td>
@@ -60,9 +63,7 @@
                             @endif    
                         </td>
                     </tr>
-                    @php
-                        $no++;
-                    @endphp
+                    
                     @endforeach
                     @else
                     <tr>

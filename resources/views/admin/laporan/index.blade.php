@@ -34,6 +34,7 @@
                             @endphp
                             {{ $pesanan }}
                         </div>
+                        <br>
                         <div>
                             <a href="{{ route('admin.laporan.pesanan') }}" class="
                             btn btn-primary">Lihat</a>
@@ -65,6 +66,7 @@
                                 </div>
                             </div>
                         </div>
+                        <br>
                         <div class="mt-2">
                             <a href="{{ route('admin.laporan.retur') }}" class="
                             btn btn-primary">Lihat</a>

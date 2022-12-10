@@ -42,6 +42,9 @@ Route::get('kontak', function () {
     return view('kontak');
 })->name('kontak');
 
+Route::get('nota', function () {
+    return view('nota');
+})->name('nota');
 // Route::get('coba', function () {
 //     return view('coba');
 // })->name('coba');
@@ -55,6 +58,8 @@ Route::middleware('auth')->group(function () {
     Route::prefix('pesanan')->group(function () {
         Route::get('/', [PesananController::class, 'index'])->name('pesanan');
         Route::get('{id}/terima', [PesananController::class, 'terima'])->name('pesanan.terima');
+        Route::get('{id}/detail', [PesananController::class, 'detail'])->name('pesanan.detail');
+        Route::get('{id}/nota', [PesananController::class, 'nota'])->name('pesanan.nota');
     });
     Route::get('retur/{id}/tambah', [ReturController::class, 'tambah'])->name('retur.tambah');
     Route::post('retur/tambah', [ReturController::class, 'simpan'])->name('retur.simpan');

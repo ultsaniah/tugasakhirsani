@@ -22,7 +22,7 @@ class CreateTransaksisTable extends Migration
             $table->string('bank')->nullable();
             $table->string('va')->nullable();
             $table->integer('biaya');
-            $table->string('pdf_url');
+            $table->string('pdf_url')->nullable();
             $table->timestamps();
         });
     }

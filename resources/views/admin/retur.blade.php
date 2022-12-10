@@ -13,14 +13,6 @@
             Data Retur 
         </span>
     </h3>
-
-    <nav aria-label="breadcrumb">
-        <ul class="breadcrumb">
-            <li class="breadcrumb-item active" aria-current="page">
-                <a href="#" class="btn btn-primary">Cetak Laporan Retur</a>
-            </li>
-        </ul>
-    </nav>
 </div>
 
 <div class="row">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pesanan;
+use App\Models\Keranjang;
 use Illuminate\Http\Request;
 
 class PesananController extends Controller
@@ -20,5 +21,19 @@ class PesananController extends Controller
         $pesanan->status_pembayaran = 'delivered';
         $pesanan->save();
         return redirect()->route('pesanan');
+    }
+
+    public function detail($id)
+    {
+        $keranjang = Keranjang::where('pesanan_id', $id)->get();
+        return view('detail-pesanan', compact('keranjang'));
+    }
+
+    public function nota($id)
+    {
+        $keranjang = Keranjang::where('pesanan_id', $id)->get();
+        return view('nota', compact('keranjang'));
+        return $keranjang;
+        return view('detail-pesanan', compact('keranjang'));
     }
 }

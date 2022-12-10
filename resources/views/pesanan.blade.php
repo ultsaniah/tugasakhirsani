@@ -64,8 +64,9 @@
                     </td>
                     <td>
                         <div class="d-flex">
-                            <a href="{{ route('admin.pesanan.detail', ['id' => $item->id]) }}" role="button" class="btn btn-primary">Detail</a>
-                            @if ($item->status_pembayaran == 'send' || 'delivered')
+                            <a href="{{ route('pesanan.nota', ['id' => $item->id]) }}" role="button" class="btn btn-success">Nota</a>
+                            <a href="{{ route('pesanan.detail', ['id' => $item->id]) }}" role="button" class="btn btn-primary ml-1">Detail</a>
+                            @if (($item->status_pembayaran == 'send') || $item->status_pembayaran == 'delivered')
                             
                             <div class="nav-item dropdown ml-3">
                                 <a href="#" class="nav-link dropdown-toggle btn btn-primary" data-toggle="dropdown">

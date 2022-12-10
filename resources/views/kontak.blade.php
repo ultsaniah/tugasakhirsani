@@ -18,7 +18,7 @@
 
 <!-- Kontak Start -->
 
-    <div class="row px-xl-5 pt-5" style="background-color: white">
+    <div class="row px-xl-5 container-fluid pt-5" style="background-color: white">
         <div class="col-lg-6 col-md-12 mb-5 pr-3 pr-xl-5">
             <a href="" class="text-decoration-none">
                 <h1 class="mb-4 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border border-white px-3 mr-1">H</span>Himari Craft</h1>

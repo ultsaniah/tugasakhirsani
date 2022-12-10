@@ -3,7 +3,7 @@
     <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
         <h1>
             <a href="{{ route('beranda') }}" style="text-decoration: none; color: black;">
-                Himari
+                Himari Craft
             </a>
             {{-- Himari --}}
         </h1>    

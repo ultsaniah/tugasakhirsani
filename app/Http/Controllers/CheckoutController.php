@@ -86,8 +86,9 @@ class CheckoutController extends Controller
         $transaksi->bank = $json->va_numbers[0]->bank ?? null;
         $transaksi->va = $json->va_numbers[0]->va_number ?? null;
         $transaksi->biaya = $json->gross_amount;
-        $transaksi->pdf_url = $json->pdf_url;
+        $transaksi->pdf_url = $json->pdf_url ?? null;
         $transaksi->save();
-        return redirect()->route('beranda');
+        return redirect()->route('pesanan.nota', ['id' => $pesanan->id]);
+        // return redirect()->route('beranda');
     }
 }

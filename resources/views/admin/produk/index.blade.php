@@ -51,7 +51,7 @@
                         <td>Rp{{ number_format($item->harga, 0 , 0, '.') }}</td>
                         <td>{{ $item->stok }}</td>
                         <td>{{ $item->berat }} gram</td>
-                        <td>{{ $item->deskripsi }}</td>
+                        <td>{{ substr($item->deskripsi, 0, 20) }}...</td>
                         <td>
                             <img src="{{ asset('produk/'.$item->gambar) }}" alt="">
                         </td>

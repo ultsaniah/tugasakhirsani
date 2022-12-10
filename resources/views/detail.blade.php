@@ -44,8 +44,8 @@
             <p class="mb-4">{{ $produk->deskripsi }}</p>
             <h5>Stok Tersedia</h5>
             <p class="mb-4">{{ $produk->stok }} Buah</p>
-            <h5>Berat Produk</h5>
-            <p>{{ $produk->berat }} Gram</p>
+            {{-- <h5>Berat Produk</h5>
+            <p>{{ $produk->berat }} Gram</p> --}}
             <div class="d-flex align-items-center mb-4 pt-2 mt-4">
                 <div class="input-group quantity mr-3" style="width: 130px;">
                     <div class="input-group-btn">
