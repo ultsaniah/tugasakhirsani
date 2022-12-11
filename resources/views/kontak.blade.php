@@ -24,7 +24,7 @@
                 <h1 class="mb-4 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border border-white px-3 mr-1">H</span>Himari Craft</h1>
             </a>
             <p>
-                Himari Craft merupakan UMKM yang bergerak dibidang kerajinan berbahan dasar mendong. Adapun kerajinan dari mendong dikenal sebagai salah satu kerajinan
+                Himari Craft merupakan UMKM yang bergerak dibidang kerajinan berbahan dasar mendong. Mendong merupakan salah satu tumbuhan yang hidup di rawa, tanaman ini tumbuh di daerah yang berlumpur dan memiliki air yang cukup. Himari Craft terletak di Dusun Parakan Kulon, Sendangsari, Minggir, Sleman, Yogyakarta. Himari Craft telah memproduksi berbagai kerajinan seperti amplop, peci, taplak, sajadah, tas, dan lain-lain.
             </p>
             
         </div>

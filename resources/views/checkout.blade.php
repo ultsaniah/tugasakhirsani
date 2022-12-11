@@ -3,8 +3,8 @@
 @if (Session::has('token'))
 @section('css')
 <script type="text/javascript"
-src="https://app.sandbox.midtrans.com/snap/snap.js"
-data-client-key="SB-Mid-client-pkPrydb_zQO1DaPU"></script>
+src="https://app.midtrans.com/snap/snap.js"
+data-client-key="Mid-client-7NqyZmsEZCQBI5vF"></script>
 @endsection
 @endif
 
